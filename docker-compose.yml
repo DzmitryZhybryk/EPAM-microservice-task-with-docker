@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  keeper:
+    networks:
+      front:
+        ipv4_address: 172.16.238.5
+    build: ./keeper
+    container_name: keeper
+    volumes:
+      - ./sql_data:/var/lib/sqlite/data/sqldata
+    ports:
+      - "5001:5001"
+    restart: always
+
+  reaper:
+    networks:
+      front:
+        ipv4_address: 172.16.238.10
+    image: djinkster/reaper:v1
+    container_name: reaper
+    ports:
+      - "5002:5002"
+
+  master:
+    networks:
+      front:
+        ipv4_address: 172.16.238.15
+    build: ./master
+    container_name: master
+    ports:
+      - "5000:5000"
+    depends_on:
+      - keeper
+      - reaper
+
+networks:
+  front:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.16.238.0/24
+

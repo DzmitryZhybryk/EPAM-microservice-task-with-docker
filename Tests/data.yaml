@@ -1,0 +1,22 @@
+test_response_code_200:
+  url: "https://hh.ru/search/vacancy?area=1002&fromSearchLine=true&text=flask"
+test_page_count:
+  url: "https://hh.ru/search/vacancy?area=1002&fromSearchLine=true&text=flask"
+test_parse_vacancy_links:
+  url: "https://hh.ru/search/vacancy?area=1002&fromSearchLine=true&text=flask"
+test_parse_vacancy_names:
+  url: "https://hh.ru/search/vacancy?area=1002&fromSearchLine=true&text=flask"
+test_new_vacancy_object:
+  url: "https://hh.ru/search/vacancy?area=1002&fromSearchLine=true&text=flask"
+test_get_vacancy_links:
+  keyword: "centos"
+test_get_vacancy_names:
+  keyword: "centos"
+test_get_data_from_database:
+  database_name: "test_database.db"
+  table_name: "test_table"
+  kyword: "linux"
+  data:
+    test_name: "test_link"
+test_database_delete:
+  database_name: "test_database.db"
