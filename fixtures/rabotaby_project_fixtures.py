@@ -1,4 +1,6 @@
 import sqlite3
+
+import docker
 from sqlite3 import Cursor
 
 import pytest
@@ -207,3 +209,5 @@ def database_delete(database_connect: Cursor, test_data: dict) -> None:
     :param test_data: dict with parameters
     """
     database_connect.execute(f"DROP TABLE IF EXISTS {test_data.get('table_name')}")
+
+
